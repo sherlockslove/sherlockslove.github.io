@@ -1,0 +1,112 @@
+
+
+/* Previous */
+
+$('head').append(
+    '<style type="text/css">#fade { display: block;}</style>'
+);
+
+/* After */
+
+$(window).load(function() {
+	$("#fade").css("height","0");
+});
+
+
+window.onload = function () {
+    setTimeout(function() {
+        $(".mv .slide").addClass("scale");
+    }, 400);
+
+	setTimeout(function() {
+        $("header").addClass("slideIn");
+    }, 1100);
+
+    setTimeout(function() {
+        $("header .mainNav,header .title,header .humb").addClass("slideIn");
+    }, 1700);
+
+    setTimeout(function() {
+        $(".workTitle").addClass("active");
+    }, 2300);
+
+    setTimeout(function() {
+        $(".workBg").addClass("active");
+    }, 0);
+
+    setTimeout(function() {
+        $(".currentChange .current").addClass("addCurrent");
+    }, 2450);
+
+    setTimeout(function() {
+        $(".current").addClass("addCurrent");
+    }, 3350);
+
+    setTimeout(function() {
+        $(".postNav").addClass("slideIn");
+    }, 2100);
+
+    setTimeout(function() {
+        $(".workCat").addClass("active");
+    }, 2600);
+
+	$(".mv").addClass("opacity");
+
+    setTimeout(function() {
+        $(".wrapper.under").addClass("opacity");
+    }, 1550);
+
+	setTimeout(function() {
+        $(".mainCopy").addClass("fadeInUp");
+    }, 2400);
+
+    setTimeout(function() {
+        $(".scrollNav").addClass("fadeInUp");
+    }, 3250);
+
+    setTimeout(function() {
+        $(".latestInfo").addClass("fadeInUp");
+    }, 3250);
+
+
+    //下層ページ アニメーション
+    setTimeout(function() {
+        $(".aboutSelect,.underDesc .left,.contactMain,.policyMain").addClass("animation");
+    }, 2000);
+
+    setTimeout(function() {
+        $(".underDesc .right").addClass("animation");
+    }, 2350);
+
+    setTimeout(function() {
+        $(".aboutSelect .selectList .listCont").addClass("scale");
+    }, 2200);
+
+    $('.selectList .listCont').hover(function() {
+        $(this).addClass('transition');
+    });
+
+};
+
+
+//Page Transition
+
+$(function() {
+  // ハッシュリンク(#)と別ウィンドウでページを開く場合はスルー
+  $('a:not([href^="#"]):not([target]):not(.icon-facebook,.icon-twitter)').on('click', function(e){
+    e.preventDefault(); // ナビゲートをキャンセル
+    url = $(this).attr('href'); // 遷移先のURLを取得
+    if (url !== '') {
+      $('body').addClass('pageTrans');  // bodyに class="fadeout"を挿入
+      setTimeout(function(){
+        window.location = url;  // 0.8秒後に取得したURLに遷移
+      }, 500);
+    }
+    return false;
+  });
+});
+
+
+
+
+

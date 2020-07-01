@@ -1,0 +1,1489 @@
+
+//cursor
+if(!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
+    $(function(){
+        var body = document.body;
+        var cursor = document.createElement("div");
+        var stalker = document.createElement("div");
+        cursor.id = "cursor";
+        stalker.id = "stalker";
+        body.appendChild(cursor);
+        body.appendChild(stalker);
+        body.addEventListener("mousemove", function(e) {
+              cursor.style.left = e.clientX + "px";
+              cursor.style.top = e.clientY + "px";
+              stalker.style.left = e.clientX + "px";
+              stalker.style.top = e.clientY + "px";
+        }, false);
+ 
+        $("a").on("mouseenter", function() {
+            $('#cursor').addClass("active");
+            $('#stalker').addClass("active");
+        });
+ 
+        $("a").on("mouseleave", function() {
+            $('#cursor').removeClass("active");
+            $('#stalker').removeClass("active");
+        });
+
+        $(".aboutSlider .slick-list").on("mouseenter", function() {
+            $('#cursor').addClass("change");
+            $('#stalker').addClass("change");
+        });
+ 
+        $(".aboutSlider .slick-list").on("mouseleave", function() {
+            $('#cursor').removeClass("change");
+            $('#stalker').removeClass("change");
+        });
+
+        $(".btnCursor").on("mouseenter", function() {
+            $('#cursor').addClass("active");
+            $('#stalker').addClass("active");
+        });
+ 
+        $(".btnCursor").on("mouseleave", function() {
+            $('#cursor').removeClass("active");
+            $('#stalker').removeClass("active");
+        });
+    });
+}
+
+
+//header
+
+$(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 70) {
+        //ボタンの表示方法
+            $('header').addClass('active');
+        } else {
+        //ボタンの非表示方法
+            $('header').removeClass('active');
+        }
+    });
+});
+
+var startPos = 0,winScrollTop = 0;
+$(window).on('scroll',function(){
+    if ($(this).scrollTop() > 70) {
+        //ボタンの表示方法
+        winScrollTop = $(this).scrollTop();
+        if (winScrollTop > startPos) {
+          $('header').addClass('hide');
+        } else {
+          $('header').removeClass('hide');
+        }
+    startPos = winScrollTop;
+
+    } else {
+        //ボタンの非表示方法
+        $('header').removeClass('hide');
+    }
+
+    
+});
+
+
+//PageTop
+
+$(function(){
+  $('#totop').click(function(){
+    $('html,body').animate({scrollTop:0}, 'easeInQuad');
+  });
+});
+
+
+//Scroll
+
+jQuery(function($){
+ $('.scrollNav').click(function(){
+  $doc = $('body,html');
+  var scrTop = $('#latest').offset().top - 90;
+  $doc.animate({ scrollTop: scrTop }, 'easeInQuad');
+ });
+});
+
+
+//PostNav
+
+$(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 10) {
+        //ボタンの表示方法
+            $('.postNav').addClass('active');
+        } else {
+        //ボタンの非表示方法
+            $('.postNav').removeClass('active');
+        }
+    });
+});
+
+$(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 180) {
+        //ボタンの表示方法
+            $('.worksMv .mvCont').addClass('fadeOut');
+        } else {
+        //ボタンの非表示方法
+            $('.worksMv .mvCont').removeClass('fadeOut');
+        }
+    });
+});
+
+
+
+
+//slideMenu - Service
+
+$(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 70) {
+        //ボタンの表示方法
+            $('.slideMenu').addClass('scroll');
+        } else {
+        //ボタンの非表示方法
+            $('.slideMenu').removeClass('scroll');
+        }
+    });
+});
+
+$(function() {
+    $(window).scroll(function () {
+        $('.slideService').removeClass('active');
+    });
+});
+
+$(document).ready(function(){
+  $(".serviceBtnInner").mouseover(function(){
+    if ($(".serviceBtn").hasClass("addCurrent")) {
+      //class addCurrentがあれば
+    } else if (!$(".serviceBtn").hasClass("addCurrent")) {
+      $('.serviceBtn').addClass('underline');
+      $('.addCurrent').addClass('closeline');
+    }
+
+    $('.worksHead').addClass('white');
+    $('.slideService').addClass('active');
+    $('#headWrap').addClass('slideLine');
+  });
+});
+
+
+$(document).ready(function(){
+  $(".slideService").on('mouseover',   function(e) {
+    if ($(".serviceBtn").hasClass("addCurrent")) {
+      //class addCurrentがあれば
+    } else if (!$(".serviceBtn").hasClass("addCurrent")) {
+      $('.serviceBtn').addClass('underline');
+      $('.addCurrent').addClass('closeline');
+    }
+
+    $('.worksHead').addClass('white');
+    $('.slideService').addClass('active');
+    $('#headWrap').addClass('slideLine');
+  });
+});
+
+
+$(document).on('mouseover',   function(e) {
+  if (!$(e.target).closest('.serviceBtn,.slideService').length) {
+    if ($(".serviceBtn").hasClass("underline")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideService').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      $('.serviceBtn').removeClass('underline');
+      $('.addCurrent').removeClass('closeline');
+      
+   } else if ($(".serviceBtn").hasClass("addCurrent")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideService').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      
+   }
+  }
+});
+
+
+$(document).on('click',   function(e) {
+  if (!$(e.target).closest('.serviceBtn,.slideService').length) {
+    if ($(".serviceBtn").hasClass("underline")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideService').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      $('.serviceBtn').removeClass('underline');
+      $('.addCurrent').removeClass('closeline');
+      
+   } else if ($(".serviceBtn").hasClass("addCurrent")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideService').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      
+   }
+  }
+});
+
+
+//slideMenu - About
+
+$(document).ready(function(){
+  $(".aboutBtnInner").mouseover(function(){
+    if ($(".aboutBtn").hasClass("addCurrent")) {
+      //class addCurrentがあれば
+    } else if (!$(".aboutBtn").hasClass("addCurrent")) {
+      $('.aboutBtn').addClass('underline');
+      $('.addCurrent').addClass('closeline');
+    }
+
+    $('.worksHead').addClass('white2');
+    $('.slideAbout').addClass('active');
+    $('#headWrap').addClass('slideLine');
+  });
+});
+
+$(document).ready(function(){
+  $(".slideAbout").on('mouseover',   function(e) {
+    if ($(".aboutBtn").hasClass("addCurrent")) {
+      //class addCurrentがあれば
+    } else if (!$(".aboutBtn").hasClass("addCurrent")) {
+      $('.aboutBtn').addClass('underline');
+      $('.addCurrent').addClass('closeline');
+    }
+
+    $('.worksHead').addClass('white2');
+    $('.slideAbout').addClass('active');
+    $('#headWrap').addClass('slideLine');
+  });
+});
+
+$(document).on('mouseover',   function(e) {
+  if (!$(e.target).closest('.aboutBtn,.slideAbout').length) {
+    if ($(".aboutBtn").hasClass("underline")) {
+      
+      $('.worksHead').removeClass('white2');
+      $('.slideAbout').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      $('.aboutBtn').removeClass('underline');
+      $('.addCurrent').removeClass('closeline');
+    
+    } else if ($(".aboutBtn").hasClass("addCurrent")) {
+      
+      $('.worksHead').removeClass('white2');
+      $('.slideAbout').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+    
+    }
+  }
+});
+
+$(document).on('click',   function(e) {
+  if (!$(e.target).closest('.aboutBtn,.slideAbout').length) {
+    if ($(".aboutBtn").hasClass("underline")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideAbout').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+      $('.aboutBtn').removeClass('underline');
+      $('.addCurrent').removeClass('closeline');
+    
+    } else if ($(".aboutBtn").hasClass("addCurrent")) {
+      
+      $('.worksHead').removeClass('white');
+      $('.slideAbout').removeClass('active');
+      $('#headWrap').removeClass('slideLine');
+    
+    }
+  }
+});
+
+
+//slideMenu - Journal
+
+$(document).ready(function(){
+  $(".journalBtnInner").mouseover(function(){
+    if ($(".journalBtn").hasClass("addCurrent")) {
+      //class addCurrentがあれば
+    } else if (!$(".journalBtn").hasClass("addCurrent")) {
+      $('.journalBtn').addClass('underline');
+      $('.addCurrent').addClass('closeline');
+    }
+    $('#headWrap').addClass('slideLine');
+  });
+});
+
+$(document).on('mouseover',   function(e) {
+  if (!$(e.target).closest('.journalBtn').length) {
+    if ($(".journalBtn").hasClass("underline")) {
+      
+      $('#headWrap').removeClass('slideLine');
+      $('.journalBtn').removeClass('underline');
+      $('.addCurrent').removeClass('closeline');
+    
+    } else if ($(".aboutBtn").hasClass("addCurrent")) {
+      
+      $('#headWrap').removeClass('slideLine');
+    
+    }
+  }
+});
+
+
+
+//HumbBtn
+$(document).ready(function(){
+  $('.humb').click(function () {
+    $('.humbBg').addClass('active');
+    $('.humbCont').addClass('active');
+    $('.normalImage').addClass('slideIn');
+    $('header').addClass('humbActive');
+  });
+});
+
+$(document).ready(function(){
+  $('.humbClose').click(function () {
+    $('.humbCont').removeClass('active');
+    $('.humbSubCont .image').addClass('delay');
+    setTimeout(function(){
+     	$('header').addClass('humbActive2');
+      $('header').addClass('humbActive2');
+     	setTimeout(function() {
+        	$('header').removeClass('humbActive2');
+        	$('header').removeClass('humbActive');
+          $('.humbSubCont').not('.normalSubCont').removeClass('active');
+          $('.normalSubCont').addClass('active');
+          $('.humbNavBtn').removeClass('active');
+          $('.normalImage').removeClass('slideIn');
+          setTimeout(function() {
+            $('.subBtn').removeClass('active');
+            $('.humbSubCont .image').removeClass('delay');
+             setTimeout(function() {
+              $('.humbBg').removeClass('active');
+            }, 600);
+          }, 400);
+    	}, 100);
+	},100);
+	
+  });
+});
+
+
+//HumbNav - Journal
+
+$(document).ready(function(){
+  $(".journalHumbBtn").mouseover(function(){
+      $('.humbNavBtn').removeClass('active');
+      $('.subBtn').removeClass('active');
+      $('.humbSubCont').not('.journalSubCont').removeClass('active');
+      $('.journalSubCont').addClass('active');
+    }).mouseout(function(){
+      
+    });
+});
+
+//HumbNav - Service
+
+$(document).ready(function(){
+  $(".serviceHumbBtn").mouseover(function(){
+      $('.serviceImage').removeClass('none');
+      $('.subImage').css('opacity','0');
+      $('.humbNavBtn').not('.serviceHumbBtn').removeClass('active');
+      $('.humbSubCont').not('.serviceSubCont').removeClass('active');
+      $('.serviceSubCont').addClass('active');
+      $('.serviceHumbBtn').addClass('active');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".serviceSubAbout").mouseover(function(){
+      $('.subImageAbout').css('opacity','1');
+      $('.subImage').not('.subImageAbout').css('opacity','0');
+      $('.serviceImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".serviceSubMedia").mouseover(function(){
+      $('.subImageMedia').css('opacity','1');
+      $('.subImage').not('.subImageMedia').css('opacity','0');
+      $('.serviceImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".serviceSubProduct").mouseover(function(){
+      $('.subImageProduct').css('opacity','1');
+      $('.subImage').not('.subImageProduct').css('opacity','0');
+      $('.serviceImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".serviceSubWorks").mouseover(function(){
+      $('.subImageWorks').css('opacity','1');
+      $('.subImage').not('.subImageWorks').css('opacity','0');
+      $('.serviceImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+
+
+//HumbNav - About
+
+$(document).ready(function(){
+  $(".aboutHumbBtn").mouseover(function(){
+      $('.aboutImage').removeClass('none');
+      $('.subImage').css('opacity','0');
+      $('.humbNavBtn').not('.aboutHumbBtn').removeClass('active');
+      $('.humbSubCont').not('.aboutSubCont').removeClass('active');
+      $('.aboutSubCont').addClass('active');
+      $('.aboutHumbBtn').addClass('active');
+    }).mouseout(function(){
+      
+    });
+});
+
+
+$(document).ready(function(){
+  $(".aboutSubUs").mouseover(function(){
+      $('.subImageUs').css('opacity','1');
+      $('.subImage').not('.subImageUs').css('opacity','0');
+      $('.aboutImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".aboutSubPhilo").mouseover(function(){
+      $('.subImagePhilo').css('opacity','1');
+      $('.subImage').not('.subImagePhilo').css('opacity','0');
+      $('.aboutImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".aboutSubCompany").mouseover(function(){
+      $('.subImageCompany').css('opacity','1');
+      $('.subImage').not('.subImageCompany').css('opacity','0');
+      $('.aboutImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+$(document).ready(function(){
+  $(".aboutSubJoinus").mouseover(function(){
+      $('.subImageJoinus').css('opacity','1');
+      $('.subImage').not('.subImageJoinus').css('opacity','0');
+      $('.aboutImage').addClass('none');
+    }).mouseout(function(){
+      
+    });
+});
+
+//HumbNav - Contact
+
+$(document).ready(function(){
+  $(".contactHumbBtn").mouseover(function(){
+      $('.humbNavBtn').removeClass('active');
+      $('.subBtn').removeClass('active');
+      $('.humbSubCont').not('.contactSubCont').removeClass('active');
+      $('.contactSubCont').addClass('active');
+    }).mouseout(function(){
+  
+    });
+});
+
+
+//HumbSp
+
+$('.spServe').click(function () {
+
+  $('.humbMainNav').addClass('fadeOut');
+  setTimeout(function() {
+    $('.humbServNav').addClass('active');
+    $('.humbMainNav').removeClass('fadeOut');
+    $('.humbMainNav').addClass('active');
+  }, 350);
+
+});
+
+$('.spAbout').click(function () {
+
+  $('.humbMainNav').addClass('fadeOut');
+  setTimeout(function() {
+    $('.humbAboutNav').addClass('active');
+    $('.humbMainNav').removeClass('fadeOut');
+    $('.humbMainNav').addClass('active');
+  }, 350);
+
+});
+
+$('.humbBackBtn').click(function () {
+  
+  $('.humbSpSubNav').addClass('fadeOut');
+
+  setTimeout(function() {
+    $('.humbMainNav').removeClass('active');
+    $('.humbSpSubNav').removeClass('active');
+    $('.humbSpSubNav').removeClass('fadeOut');    
+  }, 450);
+
+});
+
+
+//Service
+
+$(window).on('load', function(){
+    var w = $(window).width();
+    var x = 767;
+  
+    if (w <= x) {
+    //767px以下の場合
+      jQuery(function($){
+        $('.servList').click(function(){
+          $doc = $('html,body');
+          var scrTop = $('.sectService').offset().top - 81;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+        });
+      });
+
+    } else {
+    //767px以上の場合
+      jQuery(function($){
+        $('.servList').click(function(){
+          $doc = $('html,body');
+          var scrTop = $('.sectService').offset().top - 92;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+        });
+      });
+    }
+});
+
+
+
+
+//Service - Close
+
+$(document).ready(function(){
+  $('.servClose').click(function () {
+  	$('.servServImg').addClass('active');
+  	$('.servAboutImg').removeClass('active2');
+    $('.servAboutCont').removeClass('active');
+    $('.servMediaImg').removeClass('active2');
+    $('.servMediaCont').removeClass('active');
+    $('.servProductImg').removeClass('active2');
+    $('.servProductCont').removeClass('active');
+    $('.servWorksImg').removeClass('active2');
+    $('.servWorksCont').removeClass('active');
+  });
+});
+
+
+//Service - About
+
+$(document).ready(function(){
+	$(".servAboutBtn").mouseover(function(){
+		$('.servServImg').removeClass('active');
+    	$('.servAboutImg').addClass('active');
+    	$('.servAboutBtn').addClass('active');
+  	}).mouseout(function(){
+  		$('.servServImg').addClass('active');
+    	$('.servAboutImg').removeClass('active');
+    	$('.servAboutBtn').removeClass('active');
+  	});
+});
+
+$(document).ready(function(){
+  $('.servAboutBtn').click(function () {
+  	$('.servAboutImg').addClass('active2');
+    $('.servAboutCont').addClass('active');
+    setTimeout(function() {
+        $('.servServImg').removeClass('active');
+    }, 250);
+  });
+});
+
+
+//Service - Media
+
+$(document).ready(function(){
+  $(".servMediaBtn").mouseover(function(){
+    $('.servServImg').removeClass('active');
+      $('.servMediaImg').addClass('active');
+      $('.servMediaBtn').addClass('active');
+    }).mouseout(function(){
+      $('.servServImg').addClass('active');
+      $('.servMediaImg').removeClass('active');
+      $('.servMediaBtn').removeClass('active');
+    });
+});
+
+$(document).ready(function(){
+  $('.servMediaBtn').click(function () {
+    $('.servMediaImg').addClass('active2');
+    $('.servMediaCont').addClass('active');
+    setTimeout(function() {
+        $('.servServImg').removeClass('active');
+    }, 250);
+  });
+});
+
+
+//Service - Product
+
+$(document).ready(function(){
+  $(".servProductBtn").mouseover(function(){
+    $('.servServImg').removeClass('active');
+      $('.servProductImg').addClass('active');
+      $('.servProductBtn').addClass('active');
+    }).mouseout(function(){
+      $('.servServImg').addClass('active');
+      $('.servProductImg').removeClass('active');
+      $('.servProductBtn').removeClass('active');
+    });
+});
+
+$(document).ready(function(){
+  $('.servProductBtn').click(function () {
+    $('.servProductImg').addClass('active2');
+    $('.servProductCont').addClass('active');
+    setTimeout(function() {
+        $('.servServImg').removeClass('active');
+    }, 250);
+  });
+});
+
+
+//Service - Works
+
+$(document).ready(function(){
+  $(".servWorksBtn").mouseover(function(){
+    $('.servServImg').removeClass('active');
+      $('.servWorksImg').addClass('active');
+      $('.servWorksBtn').addClass('active');
+    }).mouseout(function(){
+      $('.servServImg').addClass('active');
+      $('.servWorksImg').removeClass('active');
+      $('.servWorksBtn').removeClass('active');
+    });
+});
+
+$(document).ready(function(){
+  $('.servWorksBtn').click(function () {
+    $('.servWorksImg').addClass('active2');
+    $('.servWorksCont').addClass('active');
+    setTimeout(function() {
+        $('.servServImg').removeClass('active');
+    }, 250);
+  });
+});
+
+
+//About us
+
+$('.aboutSlider').click(function () {
+var dateBox = $('.slick-slide');
+  if(dateBox.is('[aria-hidden=true]')){
+    $('.listCont').addClass('fadeInUp');
+  }else{
+    $('.listCont').removeClass('fadeInUp');
+  }
+});
+
+
+
+//Accordion
+
+$(function(){
+  $(".underSelect dt").on("click", function() {
+    $(this).next().slideToggle();
+    $(this).toggleClass('active');
+  });
+});
+
+
+//Works
+
+var adOffset;
+  $(window).on('load resize',function(){
+      adOffset = $('.workIntro').offset().top;
+  });
+  
+  $(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > adOffset - 120) {
+            $('.worksHead ').addClass('workActive');
+        } else {
+            $('.worksHead ').removeClass('workActive');
+      }
+  });
+});
+
+
+$(document).ready(function(){
+  $(".nextBtn").mouseover(function(){
+      $('.workNext').addClass('active');
+    }).mouseout(function(){
+      $('.workNext').removeClass('active');
+    });
+});
+
+$(document).ready(function(){
+  $('.shareBtn').click(function () {
+      $('.shareBtn').toggleClass('active');
+      $('.share').toggleClass('active');
+  });
+});
+
+
+$(function() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 70) {
+        //ボタンの表示方法
+            $('workTitle').addClass('fadeOut');
+            $('workCat').addClass('fadeOut');
+        } else {
+        //ボタンの非表示方法
+            $('workTitle').removeClass('fadeOut');
+            $('workCat').removeClass('fadeOut');
+        }
+    });
+});
+
+
+//Philosophy - Btn
+
+var scrollPos;
+$('.missionBtn').click(function () {
+if(!$('.missionBtn').hasClass('is-active')){
+  if ($(".ourPhilosophy").hasClass("active")) {
+    
+    //class activeがあれば
+    if ($(".bgOne").hasClass("active")) {
+
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+
+      $('.bgTwo').addClass('active2');
+      $('.bgOne').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgTwo').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourMission').addClass('active2');
+        $doc = $('.ourMission');
+        var scrTop = $('.ourMission').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourMission .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+
+        $('.ourVision').removeClass('active');
+        $('.ourValue').removeClass('active');
+        $('.ourVision .philoInner').removeClass('active');
+        $('.ourValue .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+        
+        $('.bgTwo').removeClass('active2');
+        $('.bgTwo').removeClass('active3');
+        $('.bgTwo').addClass('active');
+        $('.ourMission').addClass('active');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourMission').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourMission .missionBtn').addClass('is-active');
+      }, 4800);
+
+
+    } else if ($(".bgTwo").hasClass("active")) {
+      
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+
+      $('.bgOne').addClass('active2');
+      $('.bgTwo').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgOne').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourMission').addClass('active2');
+        $doc = $('.ourMission');
+        var scrTop = $('.ourMission').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourMission .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+        $('.ourVision').removeClass('active');
+        $('.ourValue').removeClass('active');
+        $('.ourVision .philoInner').removeClass('active');
+        $('.ourValue .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+        
+        $('.bgOne').removeClass('active2');
+        $('.bgOne').removeClass('active3');
+        
+        $('.bgOne').addClass('active');
+        $('.ourMission').addClass('active');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourMission').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourMission .missionBtn').addClass('is-active');
+      }, 4800);
+
+    }
+
+  } else if (!$(".ourPhilosophy").hasClass("active")) {
+    //class activeがなければ
+
+    $('.bgOne').addClass('active');
+    $('.philoCont').addClass('fixed');
+    scrollPos = $(window).scrollTop();
+  
+    setTimeout(function() {
+      $('.ourMission').addClass('active');
+      $doc = $('.ourMission');
+      var scrTop = $('.ourMission').offset().bottom - 0;
+      $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+    }, 250);
+
+    setTimeout(function() {
+      $('.ourMission .philoInner').addClass('active');
+      $('html').addClass('is-fixed');
+    }, 1000);
+
+    setTimeout(function() {
+      $('.philoCont').removeClass('fixed');
+    }, 3650);
+
+    setTimeout(function() {
+      $('.ourMission .missionBtn').addClass('is-active');
+    }, 4800);
+  }
+}
+});
+
+
+$('.visionBtn').click(function () {
+if(!$('.visionBtn').hasClass('is-active')){
+  if ($(".ourPhilosophy").hasClass("active")) {
+    
+    //class activeがあれば
+    if ($(".bgOne").hasClass("active")) {
+
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+
+      $('.bgTwo').addClass('active2');
+      $('.bgOne').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgTwo').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourVision').addClass('active2');
+        $doc = $('.ourVision');
+        var scrTop = $('.ourVision').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourVision .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+
+        $('.ourMission').removeClass('active');
+        $('.ourValue').removeClass('active');
+        $('.ourMission .philoInner').removeClass('active');
+        $('.ourValue .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+        
+        $('.bgTwo').removeClass('active2');
+        $('.bgTwo').removeClass('active3');
+        
+        $('.bgTwo').addClass('active');
+        $('.ourVision').addClass('active');
+        
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourVision').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourVision .visionBtn').addClass('is-active');
+      }, 4800);
+
+
+    } else if ($(".bgTwo").hasClass("active")) {
+      
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+
+      $('.bgOne').addClass('active2');
+      $('.bgTwo').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgOne').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourVision').addClass('active2');
+        $doc = $('.ourVision');
+        var scrTop = $('.ourVision').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourVision .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+
+        $('.ourMission').removeClass('active');
+        $('.ourValue').removeClass('active');
+        $('.ourMission .philoInner').removeClass('active');
+        $('.ourValue .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+        
+        $('.bgOne').removeClass('active2');
+        $('.bgOne').removeClass('active3');
+       
+        $('.bgOne').addClass('active');
+        $('.ourVision').addClass('active');
+        
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourVision').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourVision .visionBtn').addClass('is-active');
+      }, 4800);
+
+    }
+
+  } else if (!$(".ourPhilosophy").hasClass("active")) {
+    //class activeがなければ
+
+    $('.bgOne').addClass('active');
+    $('.philoCont').addClass('fixed');
+    scrollPos = $(window).scrollTop();
+  
+    setTimeout(function() {
+      $('.ourVision').addClass('active');
+      $doc = $('.ourVision');
+      var scrTop = $('.ourVision').offset().bottom - 0;
+      $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      
+    }, 250);
+
+    setTimeout(function() {
+      $('.ourVision .philoInner').addClass('active');
+      $('html').addClass('is-fixed');
+    }, 1000);
+
+    setTimeout(function() {
+      $('.philoCont').removeClass('fixed');
+    }, 3650);
+
+    setTimeout(function() {
+      $('.ourVision .visionBtn').addClass('is-active');
+    }, 4800);
+  }
+}
+});
+
+
+$('.valueBtn').click(function () {
+if(!$('.valueBtn').hasClass('is-active')){
+  if ($(".ourPhilosophy").hasClass("active")) {
+    
+    //class activeがあれば
+    if ($(".bgOne").hasClass("active")) {
+
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+    
+      $('.bgTwo').addClass('active2');
+      $('.bgOne').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgTwo').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourValue').addClass('active2');
+        $doc = $('.ourValue');
+        var scrTop = $('.ourValue').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourValue .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+
+        $('.ourMission').removeClass('active');
+        $('.ourVision').removeClass('active');
+        $('.ourMission .philoInner').removeClass('active');
+        $('.ourVision .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+        
+        $('.bgTwo').removeClass('active2');
+        $('.bgTwo').removeClass('active3');
+        
+        $('.bgTwo').addClass('active');
+        $('.ourValue').addClass('active');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourValue').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourValue .valueBtn').addClass('is-active');
+      }, 4800);
+
+
+    } else if ($(".bgTwo").hasClass("active")) {
+      
+      $( '.philoClose' ).removeClass( 'change' );
+      $( '.philoClose' ).removeClass( 'change2' );
+        
+      $('.bgOne').addClass('active2');
+      $('.bgTwo').removeClass('active');
+
+      setTimeout(function() {
+        $('.bgOne').addClass('active3');
+      }, 150);
+
+      setTimeout(function() {
+        $('.ourValue').addClass('active2');
+        $doc = $('.ourValue');
+        var scrTop = $('.ourValue').offset().bottom - 0;
+        $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      }, 250);
+
+      setTimeout(function() {
+        $('.ourValue .philoInner').addClass('active');
+        $('html').addClass('is-fixed');
+        $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+        $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+        $('.philoCont .about .right').removeClass('fadeInUp');
+        $('.underPhiloNav').removeClass('fadeInUp');
+
+        $('.philoCont .about').removeClass('fadeInUp');
+        $('.philoCont .about .left').removeClass('fadeInUp');
+        $('.guideline').removeClass('fadeInUp');
+
+        $('.ourMission').removeClass('active');
+        $('.ourVision').removeClass('active');
+        $('.ourMission .philoInner').removeClass('active');
+        $('.ourVision .philoInner').removeClass('active');
+
+        $('.philoCont').addClass('fixed');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourPhilosophy .underNav li').removeClass('is-active');
+    
+        $('.bgOne').removeClass('active2');
+        $('.bgOne').removeClass('active3');
+        $('.ourValue').removeClass('active2');
+        $('.bgOne').addClass('active');
+        $('.ourValue').addClass('active');
+      }, 1000);
+
+      setTimeout(function() {
+        $('.ourValue').removeClass('active2');
+      }, 1300);
+
+      setTimeout(function() {
+        $('.philoCont').removeClass('fixed');
+      }, 3650);
+
+      setTimeout(function() {
+        $('.ourValue .valueBtn').addClass('is-active');
+      }, 4800);
+
+    }
+
+  } else if (!$(".ourPhilosophy").hasClass("active")) {
+    //class activeがなければ
+
+    $('.bgOne').addClass('active');
+    $('.philoCont').addClass('fixed');
+    scrollPos = $(window).scrollTop();
+  
+    setTimeout(function() {
+      $('.ourValue').addClass('active');
+      $doc = $('.ourValue');
+      var scrTop = $('.ourValue').offset().bottom - 0;
+      $doc.animate({ scrollTop: scrTop }, '500', 'easeOutQuad');
+      
+    }, 250);
+
+    setTimeout(function() {
+      $('.ourValue .philoInner').addClass('active');
+      $('html').addClass('is-fixed');
+    }, 1000);
+
+
+    setTimeout(function() {
+      $('.philoCont').removeClass('fixed');
+    }, 3650);
+
+    setTimeout(function() {
+      $('.ourValue .valueBtn').addClass('is-active');
+    }, 4800);
+  }
+}
+});
+
+
+//Philosophy - NextCont
+
+$('.nextVision').click(function () {
+  $('.missionTab').removeClass('is-active');
+  $('.missionCont').hide();
+  $('.visionTab').addClass('is-active');
+  $('.visionCont').fadeIn(500);
+});
+
+$('.nextValue').click(function () {
+  $('.visionTab').removeClass('is-active');
+  $('.visionCont').hide();
+  $('.valueTab').addClass('is-active');
+  $('.valueCont').fadeIn(500);
+});
+
+$('.nextMission').click(function () {
+  $('.valueTab').removeClass('is-active');
+  $('.valueCont').hide();
+  $('.missionTab').addClass('is-active');
+  $('.missionCont').fadeIn(500);
+});
+
+
+//Philosophy - Close
+
+$('.philoClose,.closeMessage').click(function () {
+
+  $('.philoInner').removeClass('active');
+
+  $('.ourPhilosophy.active').addClass('zIndex');
+  $('.philosophyBg.active').addClass('zIndex');
+
+  $('html').removeClass('is-fixed');
+  $(window).scrollTop(scrollPos);
+
+  setTimeout(function() {
+    $('.tab').removeClass('is-active');
+  }, 450);
+
+  setTimeout(function() {
+    $('.ourPhilosophy').removeClass('active');
+  }, 550);
+
+  setTimeout(function() {
+    $('.philosophyBg').removeClass('active');
+  }, 800);
+
+  setTimeout(function() {
+    $('.ourPhilosophy .underNav li').removeClass('is-active');
+    $( '.philoClose' ).removeClass( 'change' );
+    $('.philoCont .about .left').removeClass('fadeInUp');
+    $('.philoCont .about .right').removeClass('fadeInUp');
+
+    $('.guideline').removeClass('fadeInUp');
+    $('.philoCont .nextCont .right > .inner').removeClass('fadeInUp');
+    
+    $('.philoCont .nextCont .left .image').removeClass('fadeInUp');
+
+    $('.underPhiloNav').removeClass('fadeInUp');
+
+    $('.ourPhilosophy').removeClass('zIndex');
+    $('.philosophyBg').removeClass('zIndex');
+  }, 1300);
+});
+
+
+//Philosophy - Next
+
+$(function() {
+  $(".philoCont .nextCont .nextBtn").mouseover(function(){
+    $(".nextCont").addClass("active");
+  }).mouseout(function(){
+    $(".nextCont").removeClass("active");
+  });
+});
+
+//Philosophy - SP
+
+var mediaQuery = matchMedia('(max-width: 767px)');
+
+// ページが読み込まれた時に実行
+handle(mediaQuery);
+
+// ウィンドウサイズが変更されても実行されるように
+mediaQuery.addListener(handle);
+
+function handle(mq) {
+  if (mq.matches) {
+
+    // ウィンドウサイズが768px以下のとき
+    $(document).ready(function(){
+    var hSize = $(window).height();
+      $('.philoCont .mainImg').height(hSize);
+      $('.mv').height(hSize - 20);
+      $('.underMainImg').height(hSize - 229);
+      $('.underDesc .left .image').height(hSize - 229);
+      // アドレスバーを除いたサイズを付与
+    });
+
+    $('.humb').click(function () {
+      var hSize = $(window).height();
+      $('.humbCont .inner').height(hSize);
+    });
+
+    $('.humbClose').click(function () {
+      var hSize = $(window).height();
+      setTimeout(function() {
+        $('.humbCont .inner').css('height','');
+      }, 180);
+    });
+    
+    $(window).resize(function(){ // ページをリサイズした時の処理
+      var hSize = $(window).height();
+      $('.philoCont .mainImg').height(hSize);
+      $('.mv').height(hSize - 20);
+      $('.underMainImg').height(hSize - 229);
+      $('.underDesc .left .image').height(hSize - 229);
+      // アドレスバーを除いたサイズを付与
+    });
+
+  } else if(matchMedia('(max-width: 1100px)').matches) {
+  
+    // ウィンドウサイズが1100px以下のとき
+    $(document).ready(function(){
+    var hSize = $(window).height();
+      $('.philoCont .mainImg').height(hSize);
+      $('.mv').height(hSize - 20);
+      $('.underMainImg').height(hSize - 313);
+      $('.underDesc .left .image').height(hSize - 313);
+      // アドレスバーを除いたサイズを付与
+    });
+
+    $(window).resize(function(){ // ページをリサイズした時の処理
+      var hSize = $(window).height();
+      $('.philoCont .mainImg').height(hSize);
+      $('.mv').height(hSize - 20);
+      $('.underMainImg').height(hSize - 313);
+      $('.underDesc .left .image').height(hSize - 313);
+      // アドレスバーを除いたサイズを付与
+    });
+
+
+  } else {
+    // それ以外
+    $('.philoCont .mainImg').css('height','');
+    $('.mv').css('height','');
+  }
+}
+
+
+
+//Contact
+
+(function($) {
+  var position = $('form.wpcf7-form').offset().top - 210;
+  $('.wpcf7').on('wpcf7:invalid', function() {
+    $('html, body').animate({
+      scrollTop: position
+    }, 700);
+  });
+})(jQuery);
+
+
+wpcf7c_scroll = function(unit_tag) {
+    jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
+        if(jQuery(this).val() == unit_tag) {
+            var parent = jQuery(this).parents("form");
+            var speed = 700; /* スクロールの速度 */
+            var position = parent.offset().top - 210; /* 戻り位置 */
+            if(jQuery('.wpcf7c-anchor').size() != 0) {
+                position = jQuery('.wpcf7c-anchor').offset().top - 120; /* 戻り位置 */
+            }
+            jQuery("html, body").animate({scrollTop:position}, speed, "swing");
+        }
+    });
+}
+
+
+$('.wpcf7-confirm').click(function () {
+  setTimeout(function() {
+    if (!$(".wpcf7-back").hasClass("wpcf7c-force-hide")) {
+      $(".contactNav .confirm").addClass("current");
+    } else {
+    }
+  }, 500);
+});
+
+$('.wpcf7-back').click(function () {
+  $(".contactNav .confirm").removeClass("current");
+});
+
+$('.wpcf7-submit').click(function () {
+  $(".contactNav .complete").addClass("current");
+});
+
+$('.formCont .wpcf7-form-control').click(function () {
+  if ($(".contactNav .complete").hasClass("current")) {
+    $(".contactNav .confirm").removeClass("current");
+    $(".contactNav .complete").removeClass("current");
+    $(".wpcf7-mail-sent-ok").css("display","none");
+  } else {
+  }
+});
+
+
+
+
+function init() {
+  if ($('select option[selected=selected]').attr('selected')) {
+    $('select').val($('select option[selected=selected]').val());
+  }
+  else {
+    $('select option:first').prop('selected', 'selected');
+  }
+}
+
+jQuery(function () {
+    init();
+    $(window).on('pageshow', init);
+});
+
+
